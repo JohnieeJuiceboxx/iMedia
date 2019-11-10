@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 export default class SingleMovieDetail extends Component {
@@ -26,11 +27,13 @@ export default class SingleMovieDetail extends Component {
         <h6>"{this.state.movieDetails.tagline}"</h6>
         <div className="single-detail">
           <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w300/${
-                this.state.movieDetails.poster_path
-              }`}
-            />
+            <Link to="/popular">
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${
+                  this.state.movieDetails.poster_path
+                }`}
+              />
+            </Link>
           </div>
           <div className="right-details">
             <div>
