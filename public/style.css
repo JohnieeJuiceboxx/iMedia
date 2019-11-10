@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600,900&display=swap');
+
+body {
+  font-family: 'Montserrat';
+  margin: 0px;
+  background-color: #3b8beb;
+  background-image: radial-gradient(#3b8cee 5%, #3b8beb 15%, #2965ad 60%);
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+}
+a:visited {
+  color: white;
+}
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1em;
+}
+
+form div {
+  margin: 1em;
+  display: inline-block;
+}
+
+.single-movie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+li {
+  list-style-type: none;
+}
+.pop-title {
+  width: 400px;
+  padding-left: 10px;
+}
+.pop-header {
+  display: flex;
+  justify-content: center;
+}
+.pop-empty {
+  width: 150px;
+}
+.pop-rank {
+  padding-right: 320px;
+}
+.pop-rankStar {
+  display: flex;
+  align-items: center;
+}
+
+.div-nav {
+  /* background-color: bisque; */
+}
+.nav-left {
+  float: left;
+}
+.nav-right {
+  float: right;
+}
+
+.nav-right:before,
+.nav-right:after {
+  content: '';
+  border-bottom: solid 1px white;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+}
+
+.nav-right:before {
+  left: 0;
+}
+.nav-right:after {
+  right: 0;
+}
+
+.nav-right:hover:before,
+.nav-right:hover:after {
+  width: 50%;
+}
+
+.nav-right:before,
+.nav-right:after {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.nav-logo {
+  font-family: 'Montserrat';
+  font-weight: 900;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 15px;
+}
+.wrapper {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+h1,
+h6 {
+  font-family: 'Montserrat';
+  text-align: center;
+}
+h1 {
+  margin-bottom: 0px;
+  margin-top: 100px;
+  color: white;
+}
+h6 {
+  margin-top: 0px;
+  font-weight: 600;
+  padding: 10px;
+}
+.pop {
+  background-color: #378aed;
+  text-align: center;
+  margin-left: 28%;
+  margin-right: 25%;
+}
+
+.single-detail {
+  display: flex;
+  justify-content: center;
+}
+.right-details {
+  width: 500px;
+  padding: 10px;
+}
+
+.poster {
+  transition: all 0.3s ease;
+  z-index: 1;
+  border-radius: 10px;
+  margin: 10px;
+  justify-content: space-around;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.4);
+}
+.poster:hover {
+  transform: scale(1.1);
+}
+.poster:active {
+  transform: scale(0.9);
+}
+
+.splash {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+.splash-left {
+  padding-left: 20%;
+}
+.spidey {
+  width: 90%;
+}
+.spidey-div {
+  text-align: right;
+}
+.spidey {
+  -webkit-animation: slide-in-elliptic-right-bck 0.7s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+  animation: slide-in-elliptic-right-bck 0.7s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+@-webkit-keyframes slide-in-elliptic-right-bck {
+  0% {
+    -webkit-transform: translateX(800px) rotateY(30deg) scale(6.5);
+    transform: translateX(800px) rotateY(30deg) scale(6.5);
+    -webkit-transform-origin: -100% 50%;
+    transform-origin: -100% 50%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) rotateY(0) scale(1);
+    transform: translateX(0) rotateY(0) scale(1);
+    -webkit-transform-origin: 600px 50%;
+    transform-origin: 600px 50%;
+    opacity: 1;
+  }
+}
+@keyframes spidey {
+  0% {
+    -webkit-transform: translateX(800px) rotateY(30deg) scale(6.5);
+    transform: translateX(800px) rotateY(30deg) scale(6.5);
+    -webkit-transform-origin: -100% 50%;
+    transform-origin: -100% 50%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0) rotateY(0) scale(1);
+    transform: translateX(0) rotateY(0) scale(1);
+    -webkit-transform-origin: 600px 50%;
+    transform-origin: 600px 50%;
+    opacity: 1;
+  }
+}
+
+.anton-text {
+  font-family: 'Montserrat';
+  font-weight: 900;
+  font-size: 5em;
+  letter-spacing: 0px;
+  line-height: 51px;
+  height: 62px;
+}
+#black-text.anton-text {
+  color: #000000;
+}
+.example_a {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ed3330;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+.example_a:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
+
+hr {
+  overflow: visible; /* For IE */
+  height: 30px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+  width: 50%;
+}
+hr:before {
+  /* Not really supposed to work, but does */
+  display: block;
+  content: '';
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: white;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+.button_cont {
+  padding-top: 25px;
+}
