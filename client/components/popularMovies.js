@@ -18,7 +18,7 @@ export default class PopularMovies extends Component {
     this.setState({
       popular: [...movies.data.results]
     })
-    console.log(movies.data)
+    console.log(movies.data.results)
   }
   searchMovie(clientSearch) {
     const movieSearch =
@@ -28,17 +28,23 @@ export default class PopularMovies extends Component {
   render() {
     return (
       <div className="wrapper">
-        <div className="pop">
+        <div className="pop z-depth-3">
           <h1>Popular Movies 2019</h1>
           <h6>As determined by The Movie Database</h6>
         </div>
 
-        <div className="pop-header">
-          <div className="pop-empty" />
-          <div className="pop-rank">Rank & Title</div>
-          <div>Rating</div>
-        </div>
-        <SinglePopularMovie popular={this.state.popular} />
+        <table className="striped">
+          <thead>
+            <tr>
+              <th />
+              <th>TITLE</th>
+              <th>RATING</th>
+            </tr>
+          </thead>
+          <tbody>
+            <SinglePopularMovie popular={this.state.popular} />
+          </tbody>
+        </table>
       </div>
     )
   }

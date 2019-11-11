@@ -35,7 +35,7 @@ export default class SingleMovieDetail extends Component {
               />
             </Link>
           </div>
-          <div className="right-details">
+          <div className="right-details z-depth-2">
             <div>
               <strong>Release Date: </strong>
               {this.state.movieDetails.release_date}
