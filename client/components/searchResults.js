@@ -14,7 +14,11 @@ export default function searchResults(props) {
               />
             </Link>
           </td>
-          <td>{`${movie.title} (${movie.release_date.slice(0, 4)})`}</td>
+          {/* <td>{`${movie.title} (${movie.release_date.slice(0, 4)})`}</td>
+          <td> */}
+          <td>{`${movie.title} (${
+            movie.release_date ? movie.release_date.slice(0, 4) : 'N/A'
+          })`}</td>
           <td>
             <img
               src="http://pngwebicons.com/uploads/star/ico/star_icon5425.ico "
