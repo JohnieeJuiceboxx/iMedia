@@ -20,9 +20,8 @@ export default class SingleMovieDetail extends Component {
     console.log(this.state.movieDetails)
   }
   render() {
-    console.log('state: ', this.state.movieDetails)
     return (
-      <div>
+      <div className="wrapper">
         <h1>{`${this.state.movieDetails.title} `}</h1>
         <h6>"{this.state.movieDetails.tagline}"</h6>
         <div className="single-detail">
@@ -32,6 +31,7 @@ export default class SingleMovieDetail extends Component {
                 src={`https://image.tmdb.org/t/p/w300/${
                   this.state.movieDetails.poster_path
                 }`}
+                className="poster"
               />
             </Link>
           </div>
