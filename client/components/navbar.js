@@ -6,23 +6,6 @@ import {logout} from '../store'
 import axios from 'axios'
 
 class Navbar extends Component {
-  constructor() {
-    super()
-    this.state = {
-      searchResults: {}
-    }
-    this.searchMovie = this.searchMovie.bind(this)
-    this.searchMovie()
-  }
-  async searchMovie() {
-    const results = await axios.get(
-      'https://api.themoviedb.org/3/search/movie?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US&query=batman&page=1&include_adult=false'
-    )
-    this.setState({
-      searchResults: {...results.data.results}
-    })
-  }
-
   render() {
     return (
       <div className="div-nav">
@@ -42,12 +25,6 @@ class Navbar extends Component {
                 <div className="nav-logo">MOVIE</div>
                 <div className="nav-logo">CENTRAL</div>
               </Link>
-
-              <input
-                id="nav-center"
-                type="text"
-                placeholder="Search a movie..."
-              />
 
               <Link to="/login" className="nav-right">
                 Login

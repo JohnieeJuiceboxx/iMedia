@@ -17,7 +17,6 @@ export default class SingleMovieDetail extends Component {
     this.setState({
       movieDetails: {...movies.data}
     })
-    console.log(this.state.movieDetails)
   }
   render() {
     return (

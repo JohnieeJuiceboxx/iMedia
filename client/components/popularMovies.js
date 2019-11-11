@@ -21,7 +21,6 @@ export default class PopularMovies extends Component {
     this.setState({
       popular: [...movies.data.results]
     })
-    console.log('MOUNTED: ', this.state)
   }
 
   async searchMovie(clientSearch) {
@@ -32,7 +31,6 @@ export default class PopularMovies extends Component {
     this.setState({
       search: [...results.data.results]
     })
-    console.log('POP state: ', this.state)
   }
   searchMovieHandler(evt) {
     console.log(evt.target.value)
@@ -50,10 +48,14 @@ export default class PopularMovies extends Component {
           )}
 
           <h6>As determined by The Movie Database</h6>
+        </div>
+        <div id="search_input">
+          <i className="material-icons prefix">search</i>
+
           <input
-            id="nav-center"
+            id="icon_prefix"
             type="text"
-            placeholder="Pop a movie..."
+            placeholder="Search a movie..."
             onChange={this.searchMovieHandler}
           />
         </div>
