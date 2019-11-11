@@ -22,6 +22,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <div className="nav-logo">MOVIE</div>
             <div className="nav-logo">CENTRAL</div>
           </Link>
+
+          <input id="nav-center" type="text" placeholder="Search a movie..." />
+
           <Link to="/login" className="nav-right">
             Login
           </Link>
