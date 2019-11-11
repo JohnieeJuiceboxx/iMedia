@@ -1,14 +1,17 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import SinglePopularMovie from './singlePopularMovie'
+import SearchResults from './searchResults'
 
 export default class PopularMovies extends Component {
   constructor() {
     super()
     this.state = {
-      popular: []
+      popular: [],
+      search: []
     }
     this.searchMovie = this.searchMovie.bind(this)
+    this.searchMovieHandler = this.searchMovieHandler.bind(this)
   }
   async componentDidMount() {
     const movies = await axios.get(
@@ -18,19 +21,41 @@ export default class PopularMovies extends Component {
     this.setState({
       popular: [...movies.data.results]
     })
-    console.log(movies.data.results)
+    console.log('MOUNTED: ', this.state)
   }
-  searchMovie(clientSearch) {
-    const movieSearch =
-      'https://api.themoviedb.org/3/search/movie?api_key=777f8db0c83570a6c44492e499a03fa0&query=' +
-      clientSearch
+
+  async searchMovie(clientSearch) {
+    const results = await axios.get(
+      'https://api.themoviedb.org/3/search/movie?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US&page=1&include_adult=false&query=' +
+        clientSearch
+    )
+    this.setState({
+      search: [...results.data.results]
+    })
+    console.log('POP state: ', this.state)
+  }
+  searchMovieHandler(evt) {
+    console.log(evt.target.value)
+    const search = evt.target.value
+    this.searchMovie(search)
   }
   render() {
     return (
       <div className="wrapper">
         <div className="pop z-depth-3">
-          <h1>Popular Movies 2019</h1>
+          {this.state.search.length === 0 ? (
+            <h1>Popular Movies 2019</h1>
+          ) : (
+            <h1>Search Results</h1>
+          )}
+
           <h6>As determined by The Movie Database</h6>
+          <input
+            id="nav-center"
+            type="text"
+            placeholder="Pop a movie..."
+            onChange={this.searchMovieHandler}
+          />
         </div>
 
         <table className="striped">
@@ -42,7 +67,11 @@ export default class PopularMovies extends Component {
             </tr>
           </thead>
           <tbody>
-            <SinglePopularMovie popular={this.state.popular} />
+            {this.state.search.length === 0 ? (
+              <SinglePopularMovie popular={this.state.popular} />
+            ) : (
+              <SearchResults popular={this.state.search} />
+            )}
           </tbody>
         </table>
       </div>
