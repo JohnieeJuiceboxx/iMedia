@@ -299,3 +299,11 @@ form {
 .submit-button {
   width: 90px;
 }
+
+.logged {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+  flex-direction: row;
+}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import axios from 'axios'
 
 class Navbar extends Component {
   render() {
@@ -13,8 +12,15 @@ class Navbar extends Component {
           {this.props.isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
-              <Link to="/home">Home</Link>
-              <a href="#" onClick={this.props.handleClick}>
+              <Link to="/splash" className="nav-left">
+                <div className="nav-logo">MOVIE</div>
+                <div className="nav-logo">CENTRAL</div>
+              </Link>
+              <a
+                href="#"
+                className="nav-right"
+                onClick={this.props.handleClick}
+              >
                 Logout
               </a>
             </div>
