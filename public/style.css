@@ -143,6 +143,7 @@ h6 {
   padding: 10px;
   background-color: rgb(5, 90, 160);
   margin-left: 10px;
+  position: relative;
   border-radius: 20px;
 }
 
@@ -397,4 +398,19 @@ h4 {
     filter: blur(0px);
     opacity: 1;
   }
+}
+
+.detail-title.detail-title {
+  margin-top: 30px;
+}
+.recommended {
+  display: flex;
+}
+.also-like {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.padding-left {
+  padding-left: 10px;
 }

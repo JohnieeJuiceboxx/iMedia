@@ -31,6 +31,7 @@ export default class PopularMovies extends Component {
     this.setState({
       search: [...results.data.results]
     })
+    console.log(this.state.search)
   }
   searchMovieHandler(evt) {
     console.log(evt.target.value)
