@@ -26,7 +26,7 @@ http://movie-central.herokuapp.com/
 
 1. Fork the project to your github then clone via the following line inside your terminal:
 ```
-https://github.com/JohnieeJuiceboxx/iMedia.git
+git clone https://github.com/JohnieeJuiceboxx/iMedia.git
 ```
 2. Install the npm package with npm:
 ```
@@ -36,9 +36,19 @@ npm install
 ```
 npm start
 ```
-4. Direct your web browser to -> localhost:8080 
+4. Direct your web browser to the localhost
+```
+localhost:8080 
+ ```
 
 5. Check unit testing:
 ```
 npm test
 ```
+
+I had a blast working on this mini project. Thank you for checking it out.
+
+**John Vitales**
+
+
+
