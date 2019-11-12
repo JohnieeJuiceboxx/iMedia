@@ -429,7 +429,8 @@ h4 {
   }
   .right-details {
     width: 89%;
-    height: 41em;
+    /* height: 41em; */
+    height: 45em;
   }
   .recommended {
     flex-wrap: wrap;
