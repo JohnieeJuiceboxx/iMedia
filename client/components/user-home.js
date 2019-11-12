@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -10,9 +11,14 @@ export const UserHome = props => {
 
   return (
     <div className="logged">
-      <h3>Welcome, {email}</h3>
+      <h3 className="welcome">Welcome, {email}</h3>
       <div>
         <h4>make yourself at home</h4>
+      </div>
+      <div className="button_cont" id="logged-button" align="center">
+        <Link to="/splash" className="example_a">
+          S T A R T
+        </Link>
       </div>
     </div>
   )

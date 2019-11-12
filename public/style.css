@@ -307,3 +307,94 @@ form {
   min-height: 600px;
   flex-direction: column;
 }
+.welcome {
+  -webkit-animation: welcome 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s both;
+  animation: welcome 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s both;
+}
+@-webkit-keyframes welcome {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes welcome {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+h4 {
+  margin-top: -8px;
+}
+h4 {
+  -webkit-animation: h4 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1.5s both;
+  animation: h4 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1.5s both;
+}
+
+@-webkit-keyframes h4 {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes h4 {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+#logged-button {
+  -webkit-animation: logged-button 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1.5s
+    both;
+  animation: logged-button 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1.5s both;
+}
+
+@-webkit-keyframes logged-button {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes logged-button {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
