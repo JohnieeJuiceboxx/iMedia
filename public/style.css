@@ -414,3 +414,24 @@ h4 {
 .padding-left {
   padding-left: 10px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  div.splash {
+    /* display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%; */
+    padding-top: 37%;
+    padding-right: 3%;
+  }
+  .single-detail {
+    display: block;
+  }
+  .right-details {
+    width: 89%;
+    height: 35em;
+  }
+  .recommended {
+    flex-wrap: wrap;
+  }
+}
