@@ -429,7 +429,7 @@ h4 {
   }
   .right-details {
     width: 89%;
-    /* height: 41em; */
+    z-index: -1;
     height: 45em;
   }
   .recommended {
