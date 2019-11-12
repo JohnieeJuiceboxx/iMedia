@@ -20,7 +20,7 @@ http://movie-central.herokuapp.com/
 * Google Oauth activated
 * Travis CI activated
 * Unit Testing (npm test)
-* Mobile friendly
+* Mobile friendly (runs perfect on a Galaxy Note 8)
 
 ## Run the App locally
 
