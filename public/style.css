@@ -432,6 +432,9 @@ h4 {
     z-index: -1;
     height: 45em;
   }
+  .also-like {
+    z-index: 2;
+  }
   .recommended {
     flex-wrap: wrap;
   }
@@ -452,6 +455,9 @@ h4 {
 
 @media only screen and (min-width: 414px) and (max-width: 767px) {
   .spidey {
+    visibility: hidden;
+  }
+  .poster {
     visibility: hidden;
   }
   div.splash {
