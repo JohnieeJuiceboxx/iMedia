@@ -5,6 +5,7 @@ http://movie-central.herokuapp.com/
 Movie Central is a mini coding project created with React.
 
 It utilizes The Movie Database API to gather movie data.
+
 http://movie-central.herokuapp.com/
 
 
