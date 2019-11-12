@@ -22,7 +22,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/movie/:movieId" component={SingleMovieDetail} />
+        <Route exact path="/movie/:movieId" component={SingleMovieDetail} />
         <Route path="/splash" component={Splash} />
 
         <Route path="/login" component={Login} />
