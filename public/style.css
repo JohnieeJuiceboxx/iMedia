@@ -455,6 +455,6 @@ h4 {
     visibility: hidden;
   }
   div.splash {
-    padding-top: 10%;
+    padding-top: 0;
   }
 }
