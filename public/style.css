@@ -429,7 +429,7 @@ h4 {
   }
   .right-details {
     width: 89%;
-    z-index: -1;
+    /* z-index: -1; */
     height: 45em;
   }
   .also-like {
@@ -457,9 +457,9 @@ h4 {
   .spidey {
     visibility: hidden;
   }
-  .poster {
+  /* .poster {
     visibility: hidden;
-  }
+  } */
   div.splash {
     padding-top: 0;
   }
