@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import {toggleDarkMode} from '../store/darkMode'
 
 class Navbar extends Component {
   render() {
@@ -31,7 +32,14 @@ class Navbar extends Component {
                 <div className="nav-logo">MOVIE</div>
                 <div className="nav-logo">CENTRAL</div>
               </Link>
-
+              <div
+                className="nav-right"
+                onClick={() => {
+                  this.props.toggleDarkMode()
+                }}
+              >
+                DARK MODE
+              </div>
               <Link to="/login" className="nav-right">
                 Login
               </Link>
@@ -57,6 +65,10 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
+    toggleDarkMode() {
+      console.log('darkness!')
+      dispatch(toggleDarkMode())
+    },
     handleClick() {
       dispatch(logout())
     }

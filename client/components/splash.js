@@ -6,8 +6,8 @@ export default class Splash extends Component {
     return (
       <div className="splash">
         <div className="splash-left">
-          <div className="anton-text">INTRO</div>
-          <div className="anton-text">DUCING</div>
+          <div className="anton-text intro-text">INTRO</div>
+          <div className="anton-text intro-text">DUCING</div>
           <div id="black-text" className="anton-text">
             MOVIE
           </div>
