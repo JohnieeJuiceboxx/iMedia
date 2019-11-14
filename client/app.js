@@ -4,6 +4,7 @@ import {Navbar} from './components'
 import Routes from './routes'
 
 const App = props => {
+  console.log(props.darkMode.darkmode)
   return (
     <div
       id="app-main"

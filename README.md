@@ -8,7 +8,6 @@ It utilizes The Movie Database API to gather movie data.
 
 http://movie-central.herokuapp.com/
 
-
 ## Features
 
 * Users are greeted by a Splash Page to inform them what the website is about
@@ -17,6 +16,7 @@ http://movie-central.herokuapp.com/
 * Recommended movies suggested
 * Search any movie using the Search Bar
 * Login and Sign up functionality
+* Dark Mode
 * Google Oauth activated
 * Travis CI activated
 * Unit Testing (npm test)
@@ -24,24 +24,32 @@ http://movie-central.herokuapp.com/
 
 ## Run the App locally
 
-1. Fork the project to your github then clone via the following line inside your terminal:
+1.  Fork the project to your github then clone via the following line inside your terminal:
+
 ```
 git clone https://github.com/JohnieeJuiceboxx/iMedia.git
 ```
-2. Install the npm package with npm:
+
+2.  Install the npm package with npm:
+
 ```
 npm install
 ```
-3. Start the app on your terminal:
+
+3.  Start the app on your terminal:
+
 ```
 npm start
 ```
-4. Direct your web browser to the localhost
-```
-localhost:8080 
- ```
 
-5. Check unit testing:
+4.  Direct your web browser to the localhost
+
+```
+localhost:8080
+```
+
+5.  Check unit testing:
+
 ```
 npm test
 ```
@@ -49,6 +57,3 @@ npm test
 I had a blast working on this mini project. Thank you for checking it out.
 
 **John Vitales**
-
-
-
