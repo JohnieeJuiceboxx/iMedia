@@ -26,6 +26,9 @@ div#app-main.darkmode .right-details {
 div#app-main.darkmode div.anton-text.intro-text {
   color: rgb(130, 127, 127);
 }
+div#app-main.darkmode div.wrapper {
+  background-image: radial-gradient(#282f36 5%, #282f36 15%, #202427 60%);
+}
 /* body#darkmode {
   background-image: radial-gradient(#282f36 5%, #282f36 15%, #202427 60%);
 } */
@@ -33,7 +36,7 @@ div#app-main.darkmode div.anton-text.intro-text {
 body {
   font-family: 'Montserrat';
   margin: 0px;
-  background-color: #3b8beb;
+  /* background-color: #3b8beb; */
   background-image: radial-gradient(#3b8cee 5%, #3b8beb 15%, #2965ad 60%);
   /* color: white; */
   transition: all 0.4s ease;
@@ -149,6 +152,9 @@ h1 {
   font-size: 2em;
   padding-top: 6px;
 }
+h3 {
+  color: white;
+}
 h6 {
   margin-top: 0px;
   font-weight: 600;
@@ -204,12 +210,14 @@ table {
   justify-content: flex-end;
   width: 100%;
   padding-top: 8%;
+  overflow: hidden;
 }
 .splash-left {
   padding-left: 20%;
 }
 .spidey {
   width: 90%;
+  pointer-events: none;
 }
 .spidey-div {
   text-align: right;
