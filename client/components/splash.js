@@ -14,7 +14,9 @@ export default class Splash extends Component {
           <div id="black-text" className="anton-text">
             CENTRAL
           </div>
-          <div>The leading movie website for the lastest films.</div>
+          <div className="overview">
+            The leading movie website for the lastest films.
+          </div>
 
           <div className="button_cont" align="center">
             <Link to="/popular" className="example_a">
