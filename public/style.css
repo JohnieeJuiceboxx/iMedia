@@ -507,6 +507,10 @@ h4 {
   #search_input {
     width: 40%;
   }
+  .anton-text {
+    font-size: 10vh;
+    height: 8.5vh;
+  }
   .button_cont {
     padding-top: 45px;
     padding-right: 20px;
@@ -520,7 +524,13 @@ h4 {
   /* .poster {
     visibility: hidden;
   } */
+
   div.splash {
-    padding-top: 0;
+    justify-content: center;
+    padding-right: 17%;
+  }
+  .anton-text {
+    font-size: 10vh;
+    height: 8.5vh;
   }
 }
