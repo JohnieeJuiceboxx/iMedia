@@ -32,7 +32,15 @@ div#app-main.darkmode div.wrapper {
 /* body#darkmode {
   background-image: radial-gradient(#282f36 5%, #282f36 15%, #202427 60%);
 } */
-
+.dark-button-def {
+  color: rgba(255, 213, 91, 0.5);
+  cursor: pointer;
+  transition: color 0.4s ease;
+  padding-right: 2%;
+}
+.dark-button-def:hover {
+  color: #ffd55b;
+}
 body {
   font-family: 'Montserrat';
   margin: 0px;

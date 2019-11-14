@@ -32,14 +32,17 @@ class Navbar extends Component {
                 <div className="nav-logo">MOVIE</div>
                 <div className="nav-logo">CENTRAL</div>
               </Link>
-              <div
-                className="nav-right"
-                onClick={() => {
-                  this.props.toggleDarkMode()
-                }}
-              >
-                DARK MODE
+              <div className="dark-button-def">
+                <i
+                  className="material-icons nav-right"
+                  onClick={() => {
+                    this.props.toggleDarkMode()
+                  }}
+                >
+                  brightness_4
+                </i>
               </div>
+
               <Link to="/login" className="nav-right">
                 Login
               </Link>
