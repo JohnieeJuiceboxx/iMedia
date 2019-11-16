@@ -24,6 +24,8 @@ http://movie-central.herokuapp.com/
 
 ## Run the App locally
 
+NOTE: (Master Branch has AJAX requests in local React State for readability. Dev branch has AJAX requests located in the Redux Store for DRY components.)
+
 1.  Fork the project to your github then clone via the following line inside your terminal:
 
 ```

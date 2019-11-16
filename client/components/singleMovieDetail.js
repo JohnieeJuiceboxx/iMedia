@@ -22,6 +22,19 @@ export default class SingleMovieDetail extends Component {
       similar: [...similar.data.results]
     })
   }
+  async componentDidUpdate(prevProps, prevState) {
+    const movieId = this.props.match.params.movieId
+
+    if (prevState.movieDetails.id !== Number(movieId)) {
+      const movies = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US
+      `)
+      this.setState({
+        movieDetails: {...movies.data}
+        // similar: [...similar.data.results]
+      })
+    }
+  }
+
   async updater(movieId) {
     const movies = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US
     `)
@@ -68,7 +81,6 @@ export default class SingleMovieDetail extends Component {
                             movie.poster_path
                           }`}
                           className="poster"
-                          onClick={`${movie.id} => this.updater()`}
                         />
                       </Link>
                     </div>
