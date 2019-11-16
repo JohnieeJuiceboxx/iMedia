@@ -26,6 +26,9 @@ div#app-main.darkmode .pop {
 div#app-main.darkmode .right-details {
   background-color: #202427;
 }
+div#app-main.darkmode .overview {
+  color: rgb(130, 127, 127);
+}
 div#app-main.darkmode div.anton-text.intro-text {
   color: rgb(130, 127, 127);
 }
@@ -184,7 +187,9 @@ table {
 }
 .material-icons {
   padding-top: 10px;
-  color: #cccfd1;
+}
+#magnifying {
+  color: #d1d1d1;
 }
 .single-detail {
   display: flex;
@@ -233,8 +238,44 @@ table {
   width: 90%;
   pointer-events: none;
 }
+.spidey2 {
+  pointer-events: none;
+  width: 76%;
+  padding-right: 25%;
+}
+.spidey2 {
+  -webkit-animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s
+    both;
+  animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+}
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .spidey-div {
   text-align: right;
+  width: 50%;
 }
 .spidey {
   -webkit-animation: slide-in-elliptic-right-bck 0.7s
@@ -312,6 +353,7 @@ table {
 .overview {
   text-align: center;
   font-size: 2.3vh;
+  transition: all 0.4s ease;
 }
 hr {
   overflow: visible; /* For IE */

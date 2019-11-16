@@ -49,7 +49,9 @@ export default class PopularMovies extends Component {
           <h6>As determined by The Movie Database</h6>
         </div>
         <div id="search_input">
-          <i className="material-icons prefix">search</i>
+          <i className="material-icons prefix" id="magnifying">
+            search
+          </i>
 
           <input
             id="icon_prefix"

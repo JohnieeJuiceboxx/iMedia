@@ -1,7 +1,19 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-export default class Splash extends Component {
+class Splash extends Component {
+  componentDidUpdate(prevProps) {
+    if (prevProps.darkMode.darkmode !== this.props.darkMode.darkmode) {
+      this.spiderSelector()
+    }
+  }
+  spiderSelector() {
+    if (!this.props.darkMode.darkmode) {
+      return <img src="/spidey.png" className="spidey" />
+    }
+    return <img src="/black-suit-spider-man.png" className="spidey2" />
+  }
   render() {
     return (
       <div className="splash">
@@ -25,9 +37,20 @@ export default class Splash extends Component {
           </div>
         </div>
         <div className="spidey-div">
-          <img src="/spidey.png" className="spidey" />
+          {/* {!this.props.darkMode.darkmode ? (
+            <img src="/spidey.png" className="spidey" />
+          ) : (
+            <img src="/black-suit-spider-man.png" className="spidey" />
+          )} */}
+          {this.spiderSelector()}
         </div>
       </div>
     )
   }
 }
+const mapState = state => {
+  return {
+    darkMode: state.darkMode
+  }
+}
+export default connect(mapState)(Splash)
