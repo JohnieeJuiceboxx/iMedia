@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import darkMode from './darkMode'
+import moviesReducer from './movies'
 
-const reducer = combineReducers({user, darkMode})
+const reducer = combineReducers({user, darkMode, movies: moviesReducer})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -13,3 +14,4 @@ const store = createStore(reducer, middleware)
 
 export default store
 export * from './user'
+export * from './darkMode'

@@ -1,45 +1,34 @@
 import React, {Component} from 'react'
-
+import {connect} from 'react-redux'
 import {Link, BrowserRouter as Router} from 'react-router-dom'
-import axios from 'axios'
+import {fetchSingleMovie, fetchSimilarMovies} from '../store/movies'
 
-export default class SingleMovieDetail extends Component {
-  constructor() {
-    super()
-    this.state = {
-      movieDetails: {},
-      similar: []
+class SingleMovieDetail extends Component {
+  componentDidMount() {
+    const movieId = this.props.match.params.movieId
+
+    this.props.fetchSingle(movieId)
+    this.props.fetchSimilar(movieId)
+  }
+  componentDidUpdate(prevProps) {
+    const movieId = this.props.match.params.movieId
+
+    if (prevProps.single.id !== Number(movieId)) {
+      this.props.fetchSingle(movieId)
     }
   }
-  async componentDidMount() {
-    const movieId = this.props.match.params.movieId
-    const movies = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US
-    `)
-    const similar = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US&page=1
-    `)
-    this.setState({
-      movieDetails: {...movies.data},
-      similar: [...similar.data.results]
-    })
-  }
-  async updater(movieId) {
-    const movies = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US
-    `)
-    this.setState({
-      movieDetails: {...movies.data}
-    })
-  }
+
   render() {
     return (
       <div className="wrapper">
-        <h1 className="detail-title">{`${this.state.movieDetails.title} `}</h1>
-        <h6>"{this.state.movieDetails.tagline}"</h6>
+        <h1 className="detail-title">{`${this.props.single.title} `}</h1>
+        <h6>"{this.props.single.tagline}"</h6>
         <div className="single-detail">
           <div>
             <Link to="/popular">
               <img
                 src={`https://image.tmdb.org/t/p/w300/${
-                  this.state.movieDetails.poster_path
+                  this.props.single.poster_path
                 }`}
                 className="poster"
               />
@@ -48,19 +37,19 @@ export default class SingleMovieDetail extends Component {
           <div className="right-details z-depth-2">
             <div>
               <strong>Release Date: </strong>
-              {this.state.movieDetails.release_date}
+              {this.props.single.release_date}
             </div>
             <div>
               <strong>Runtime: </strong>
-              {this.state.movieDetails.runtime} min
+              {this.props.single.runtime} min
             </div>
             <div>
-              <p>{this.state.movieDetails.overview}</p>
+              <p>{this.props.single.overview}</p>
               <div className="also-like">
                 <p className="padding-left">You might also like:</p>
 
                 <div className="recommended">
-                  {this.state.similar.slice(0, 7).map(movie => (
+                  {this.props.similar.slice(0, 7).map(movie => (
                     <div key={movie.id.toString()}>
                       <Link to={`/movie/${movie.id}`}>
                         <img
@@ -68,7 +57,7 @@ export default class SingleMovieDetail extends Component {
                             movie.poster_path
                           }`}
                           className="poster"
-                          onClick={`${movie.id} => this.updater()`}
+                          //  onClick={movie.id => (this.updater())}
                         />
                       </Link>
                     </div>
@@ -82,3 +71,18 @@ export default class SingleMovieDetail extends Component {
     )
   }
 }
+const MapState = state => {
+  return {
+    single: state.movies.single,
+    similar: state.movies.similar
+  }
+}
+
+const MapDispatch = dispatch => {
+  return {
+    fetchSingle: movieId => dispatch(fetchSingleMovie(movieId)),
+    fetchSimilar: movieId => dispatch(fetchSimilarMovies(movieId))
+  }
+}
+
+export default connect(MapState, MapDispatch)(SingleMovieDetail)

@@ -1,26 +1,20 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+
 import axios from 'axios'
 import SinglePopularMovie from './singlePopularMovie'
 import SearchResults from './searchResults'
+import {fetchPopularMovies, fetchSearchedMovies} from '../store/movies'
 
-export default class PopularMovies extends Component {
+class PopularMovies extends Component {
   constructor() {
     super()
-    this.state = {
-      popular: [],
-      search: []
-    }
+
     this.searchMovie = this.searchMovie.bind(this)
     this.searchMovieHandler = this.searchMovieHandler.bind(this)
   }
-  async componentDidMount() {
-    const movies = await axios.get(
-      'https://api.themoviedb.org/3/movie/popular?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US&page=1'
-    )
-
-    this.setState({
-      popular: [...movies.data.results]
-    })
+  componentDidMount() {
+    this.props.fetchPopular()
   }
 
   async searchMovie(clientSearch) {
@@ -28,19 +22,16 @@ export default class PopularMovies extends Component {
       'https://api.themoviedb.org/3/search/movie?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US&page=1&include_adult=false&query=' +
         clientSearch
     )
-    this.setState({
-      search: [...results.data.results]
-    })
   }
   searchMovieHandler(evt) {
     const search = evt.target.value
-    this.searchMovie(search)
+    const results = this.props.fetchSearch(search)
   }
   render() {
     return (
       <div className="wrapper">
         <div className="pop z-depth-3">
-          {this.state.search.length === 0 ? (
+          {this.props.search.length === 0 ? (
             <h1>Popular Movies 2019</h1>
           ) : (
             <h1>Search Results</h1>
@@ -68,10 +59,10 @@ export default class PopularMovies extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.search.length === 0 ? (
-              <SinglePopularMovie popular={this.state.popular} />
+            {this.props.search.length === 0 ? (
+              <SinglePopularMovie popular={this.props.popular} />
             ) : (
-              <SearchResults popular={this.state.search} />
+              <SearchResults popular={this.props.search} />
             )}
           </tbody>
         </table>
@@ -79,3 +70,17 @@ export default class PopularMovies extends Component {
     )
   }
 }
+const mapState = state => {
+  return {
+    popular: state.movies.popular,
+    search: []
+  }
+}
+const mapDispatch = dispatch => {
+  return {
+    fetchPopular: movies => dispatch(fetchPopularMovies()),
+    fetchSearch: movies => dispatch(fetchSearchedMovies(searchItem))
+  }
+}
+
+export default connect(mapState, mapDispatch)(PopularMovies)
