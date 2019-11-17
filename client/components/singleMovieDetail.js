@@ -28,9 +28,11 @@ export default class SingleMovieDetail extends Component {
     if (prevState.movieDetails.id !== Number(movieId)) {
       const movies = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US
       `)
+      const similar = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=777f8db0c83570a6c44492e499a03fa0&language=en-US&page=1
+      `)
       this.setState({
-        movieDetails: {...movies.data}
-        // similar: [...similar.data.results]
+        movieDetails: {...movies.data},
+        similar: [...similar.data.results]
       })
     }
   }
