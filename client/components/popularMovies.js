@@ -67,6 +67,7 @@ export default class PopularMovies extends Component {
               <th />
               <th>TITLE</th>
               <th>RATING</th>
+              <th>Your Rating</th>
             </tr>
           </thead>
           <tbody>

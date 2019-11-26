@@ -1,7 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import StarRating from './starRating'
 
-export default function SinglePopularMovie(props) {
+function SinglePopularMovie(props) {
+  function showStars() {
+    this.setState({
+      showRank: !this.state.showRank
+    })
+  }
+
   return (
     <React.Fragment>
       {props.popular.map(movie => (
@@ -22,8 +30,28 @@ export default function SinglePopularMovie(props) {
             />
             {movie.vote_average}
           </td>
+          <td>
+            {!props.isLoggedIn ? (
+              <Link to="/login">
+                <img
+                  src="https://www.freeiconspng.com/uploads/white-star-icon-2.png"
+                  width="25"
+                  alt="Icon Free White Star"
+                />
+              </Link>
+            ) : (
+              <StarRating />
+            )}
+          </td>
         </tr>
       ))}
     </React.Fragment>
   )
 }
+
+const mapState = state => {
+  return {
+    isLoggedIn: !!state.user.id
+  }
+}
+export default connect(mapState, null)(SinglePopularMovie)
