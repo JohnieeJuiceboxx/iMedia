@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import StarRating from './starRating'
 
 function searchResults(props) {
@@ -51,4 +52,4 @@ const mapState = state => {
     isLoggedIn: !!state.user.id
   }
 }
-export default connect(mapState, null)(SearchResults)
+export default connect(mapState, null)(searchResults)
