@@ -64,13 +64,24 @@ export default class starRating extends Component {
     return (
       <div>
         <div>
-          <img
-            src="http://pngwebicons.com/uploads/star/ico/star_icon5425.ico "
-            className="rank-star"
-            width={25}
-            onClick={() => this.showStars()}
-            style={{display: this.state.showRank ? 'none' : 'block'}}
-          />
+          {this.state.rating > 0 ? (
+            <img
+              src="http://pngwebicons.com/uploads/star/ico/star_icon5425.ico "
+              className="rank-star"
+              width={25}
+              onClick={() => this.showStars()}
+              style={{display: this.state.showRank ? 'none' : 'inline'}}
+            />
+          ) : (
+            <img
+              src="https://www.freeiconspng.com/uploads/white-star-icon-2.png"
+              className="rank-star"
+              width={25}
+              onClick={() => this.showStars()}
+              alt="Icon Free White Star"
+              style={{display: this.state.showRank ? 'none' : 'block'}}
+            />
+          )}
           {this.state.rating > 0 ? this.state.rating : null}
         </div>
         <div
@@ -78,7 +89,6 @@ export default class starRating extends Component {
           style={{display: this.state.showRank ? 'block' : 'none'}}
         >
           <Rating
-            // name="customized-10"
             value={this.state.rating}
             max={10}
             precision={0.5}
