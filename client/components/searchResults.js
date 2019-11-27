@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import StarRating from './starRating'
 
-export default function searchResults(props) {
+function searchResults(props) {
   return (
     <React.Fragment>
       {props.popular.map(movie => (
@@ -26,8 +27,28 @@ export default function searchResults(props) {
             />
             {movie.vote_average}
           </td>
+          <td>
+            {!props.isLoggedIn ? (
+              <Link to="/login">
+                <img
+                  src="https://www.freeiconspng.com/uploads/white-star-icon-2.png"
+                  width="25"
+                  alt="Icon Free White Star"
+                />
+              </Link>
+            ) : (
+              <StarRating />
+            )}
+          </td>
         </tr>
       ))}
     </React.Fragment>
   )
 }
+
+const mapState = state => {
+  return {
+    isLoggedIn: !!state.user.id
+  }
+}
+export default connect(mapState, null)(SearchResults)
