@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import StarRatingComponent from 'react-star-rating-component'
 import {addedRating, fetchRating, updateRatingValue} from '../store/ratings.js'
+import {useToasts} from 'react-toast-notifications'
 import {connect} from 'react-redux'
 import Axios from 'axios'
 
@@ -14,6 +15,7 @@ class starRating extends Component {
     this.showStars = this.showStars.bind(this)
     this.onStarClick = this.onStarClick.bind(this)
   }
+
   async componentDidMount() {
     if (this.props.isLoggedIn) {
       let rated = await Axios.get('api/ratings')
@@ -51,6 +53,12 @@ class starRating extends Component {
   }
   render() {
     const {rating} = this.state
+    // const {addToast} = useToasts()
+    // addToast('Rating Saved!', {
+    //   appearance: 'success',
+    //   autoDismiss: true,
+    //   autoDismissTimeout: 2500
+    // })
 
     return (
       <div>

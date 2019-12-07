@@ -155,6 +155,9 @@ table {
   padding: 20px;
   margin: 0 auto;
 }
+.errorStar {
+  cursor: pointer;
+}
 h1,
 h6 {
   font-family: 'Montserrat';
@@ -452,8 +455,8 @@ h4 {
   margin-top: -8px;
 }
 h4 {
-  -webkit-animation: h4 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1.5s both;
-  animation: h4 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1.5s both;
+  -webkit-animation: h4 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;
+  animation: h4 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;
 }
 
 @-webkit-keyframes h4 {

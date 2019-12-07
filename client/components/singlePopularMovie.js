@@ -2,14 +2,23 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import StarRating from './starRating'
+import {useToasts} from 'react-toast-notifications'
 
-function SinglePopularMovie(props) {
-  function showStars() {
-    this.setState({
-      showRank: !this.state.showRank
+const SinglePopularMovie = props => {
+  // function showStars() {
+  //   this.setState({
+  //     showRank: !this.state.showRank
+  //   })
+  // }
+  const {addToast} = useToasts()
+
+  const notify = () => {
+    addToast('Login or Sign Up', {
+      appearance: 'error',
+      autoDismiss: true,
+      autoDismissTimeout: 2500
     })
   }
-
   return (
     <React.Fragment>
       {props.popular.map(movie => (
@@ -32,13 +41,13 @@ function SinglePopularMovie(props) {
           </td>
           <td>
             {!props.isLoggedIn ? (
-              <Link to="/login">
-                <img
-                  src="https://www.freeiconspng.com/uploads/white-star-icon-2.png"
-                  width="25"
-                  alt="Icon Free White Star"
-                />
-              </Link>
+              <img
+                src="https://www.freeiconspng.com/uploads/white-star-icon-2.png"
+                width="25"
+                alt="Icon Free White Star"
+                onClick={notify}
+                className="errorStar"
+              />
             ) : (
               <StarRating movieId={movie.id} />
             )}
