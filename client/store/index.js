@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import darkMode from './darkMode'
+import ratings from './ratings'
 
-const reducer = combineReducers({user, darkMode})
+const reducer = combineReducers({user, darkMode, ratings})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

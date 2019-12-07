@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import StarRatingComponent from 'react-star-rating-component'
-import {addedRating, fetchRating} from '../store/ratings.js'
+import {addedRating, fetchRating, updateRatingValue} from '../store/ratings.js'
 import {connect} from 'react-redux'
 import Axios from 'axios'
 
@@ -38,13 +38,16 @@ class starRating extends Component {
   onStarClick(nextValue, prevValue, name) {
     this.setState({showRank: !this.state.showRank, rating: nextValue})
 
-    console.log(this.props.user)
     const ratingToAdd = {
       movieId: this.props.movieId,
       rating: nextValue,
       userId: this.props.user
     }
-    this.props.addRating(ratingToAdd)
+    if (this.state.rating > 0) {
+      this.props.updateRating(ratingToAdd)
+    } else {
+      this.props.addRating(ratingToAdd)
+    }
   }
   render() {
     const {rating} = this.state
@@ -97,7 +100,8 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     addRating: rating => dispatch(addedRating(rating)),
-    fetchRating: () => dispatch(fetchRating())
+    fetchRating: () => dispatch(fetchRating()),
+    updateRating: movie => dispatch(updateRatingValue(movie))
   }
 }
 export default connect(mapState, mapDispatch)(starRating)

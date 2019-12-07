@@ -30,3 +30,23 @@ router.post('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/', async (req, res, next) => {
+  try {
+    console.log(req.body.rating)
+    await Ratings.update(
+      {
+        rating: req.body.rating
+      },
+      {
+        where: {
+          userId: req.body.userId,
+          movieId: req.body.movieId
+        }
+      }
+    )
+    res.sendStatus(201)
+  } catch (error) {
+    console.error(error)
+  }
+})
