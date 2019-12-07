@@ -16,16 +16,16 @@ class starRating extends Component {
   }
   async componentDidMount() {
     if (this.props.isLoggedIn) {
-      // let rated = await this.props.fetchRating()
       let rated = await Axios.get('api/ratings')
-      let rates = rated.data.map(mov => {
-        if (this.props.movieId.toString() === mov.movieId.toString()) {
+      rated.data.map(mov => {
+        if (
+          this.props.movieId.toString() === mov.movieId.toString() &&
+          this.props.user.toString() === mov.userId.toString()
+        ) {
           let thisOne = mov
-          console.log(thisOne)
           this.setState({rating: thisOne.rating})
         }
       })
-      //this.setState({rating: rated})
     }
   }
 
