@@ -1,44 +1,8 @@
 import React, {Component} from 'react'
-import Rating from '@material-ui/lab/Rating'
-import PropTypes from 'prop-types'
-import Tooltip from '@material-ui/core/Tooltip'
+import StarRatingComponent from 'react-star-rating-component'
+import {connect} from 'react-redux'
 
-const labels = {
-  0.5: '0.5',
-  1: '1',
-  1.5: '1.5',
-  2: '2',
-  2.5: '2.5',
-  3: '3',
-  3.5: '3.5',
-  4: '4',
-  4.5: '4.5',
-  5: '5',
-  6: '6',
-  6.5: '6.5',
-  7: '7',
-  7.5: '7.5',
-  8: '8',
-  8.5: '8.5',
-  9: '9',
-  9.5: '9.5',
-  10: 'PERFECT!'
-}
-
-function IconContainer(props) {
-  const {value, ...other} = props
-  return (
-    <Tooltip title={labels[value] || ''}>
-      <span {...other} />
-    </Tooltip>
-  )
-}
-
-IconContainer.propTypes = {
-  value: PropTypes.number.isRequired
-}
-
-export default class starRating extends Component {
+class starRating extends Component {
   constructor() {
     super()
     this.state = {
@@ -47,6 +11,7 @@ export default class starRating extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.showStars = this.showStars.bind(this)
+    this.onStarClick = this.onStarClick.bind(this)
   }
 
   showStars() {
@@ -60,7 +25,12 @@ export default class starRating extends Component {
       rating: evt.target.value
     })
   }
+  onStarClick(nextValue, prevValue, name) {
+    this.setState({showRank: !this.state.showRank, rating: nextValue})
+  }
   render() {
+    const {rating} = this.state
+
     return (
       <div>
         <div>
@@ -88,17 +58,16 @@ export default class starRating extends Component {
           className="rank"
           style={{display: this.state.showRank ? 'block' : 'none'}}
         >
-          <Rating
-            value={this.state.rating}
-            max={10}
-            precision={0.5}
-            size="large"
-            name="size-large"
-            IconContainerComponent={IconContainer}
-            onChange={this.handleChange}
+          <StarRatingComponent
+            name="rate1"
+            starCount={10}
+            value={rating}
+            onStarClick={this.onStarClick}
           />
         </div>
       </div>
     )
   }
 }
+
+export default connect(mapState, null)(starRating)
