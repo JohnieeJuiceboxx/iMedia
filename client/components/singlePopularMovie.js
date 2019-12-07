@@ -40,7 +40,7 @@ function SinglePopularMovie(props) {
                 />
               </Link>
             ) : (
-              <StarRating />
+              <StarRating movieId={movie.id} />
             )}
           </td>
         </tr>

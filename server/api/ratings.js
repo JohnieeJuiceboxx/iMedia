@@ -23,8 +23,8 @@ router.post('/', async (req, res, next) => {
     //     movieId: req.body.movieId
     //   }
     // })
-    const {movieId, rating, review} = req.body
-    await Ratings.create({movieId, rating, review})
+    const {movieId, rating, review, userId} = req.body
+    await Ratings.create({movieId, rating, review, userId})
     res.json({body: req.body})
   } catch (err) {
     next(err)

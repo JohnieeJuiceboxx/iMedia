@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import StarRatingComponent from 'react-star-rating-component'
+import {addedRating, fetchRating} from '../store/ratings.js'
 import {connect} from 'react-redux'
+import Axios from 'axios'
 
 class starRating extends Component {
   constructor() {
@@ -9,9 +11,22 @@ class starRating extends Component {
       showRank: false,
       rating: 0
     }
-    this.handleChange = this.handleChange.bind(this)
     this.showStars = this.showStars.bind(this)
     this.onStarClick = this.onStarClick.bind(this)
+  }
+  async componentDidMount() {
+    if (this.props.isLoggedIn) {
+      // let rated = await this.props.fetchRating()
+      let rated = await Axios.get('api/ratings')
+      let rates = rated.data.map(mov => {
+        if (this.props.movieId.toString() === mov.movieId.toString()) {
+          let thisOne = mov
+          console.log(thisOne)
+          this.setState({rating: thisOne.rating})
+        }
+      })
+      //this.setState({rating: rated})
+    }
   }
 
   showStars() {
@@ -19,14 +34,17 @@ class starRating extends Component {
       showRank: !this.state.showRank
     })
   }
-  handleChange(evt) {
-    this.setState({
-      showRank: !this.state.showRank,
-      rating: evt.target.value
-    })
-  }
+
   onStarClick(nextValue, prevValue, name) {
     this.setState({showRank: !this.state.showRank, rating: nextValue})
+
+    console.log(this.props.user)
+    const ratingToAdd = {
+      movieId: this.props.movieId,
+      rating: nextValue,
+      userId: this.props.user
+    }
+    this.props.addRating(ratingToAdd)
   }
   render() {
     const {rating} = this.state
@@ -70,4 +88,16 @@ class starRating extends Component {
   }
 }
 
-export default connect(mapState, null)(starRating)
+const mapState = state => {
+  return {
+    user: state.user.id,
+    isLoggedIn: !!state.user.id
+  }
+}
+const mapDispatch = dispatch => {
+  return {
+    addRating: rating => dispatch(addedRating(rating)),
+    fetchRating: () => dispatch(fetchRating())
+  }
+}
+export default connect(mapState, mapDispatch)(starRating)
