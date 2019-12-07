@@ -5,11 +5,6 @@ import StarRating from './starRating'
 import {useToasts} from 'react-toast-notifications'
 
 const SinglePopularMovie = props => {
-  // function showStars() {
-  //   this.setState({
-  //     showRank: !this.state.showRank
-  //   })
-  // }
   const {addToast} = useToasts()
 
   const notify = () => {
