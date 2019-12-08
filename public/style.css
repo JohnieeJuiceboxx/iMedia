@@ -127,9 +127,16 @@ table {
   position: fixed;
   box-shadow: 0 0 0 0;
 }
+.lefty {
+  transition: all 0.4s ease;
+}
+.lefty:hover {
+  letter-spacing: 4px;
+}
 .nav-left {
   float: left;
 }
+
 .nav-right {
   float: right;
 }
@@ -143,7 +150,12 @@ table {
   margin-top: 20px;
   transform: translate(-50%, -50%);
 }
-
+a.lefty {
+  transition: all 0.4s ease;
+}
+a.lefty:hover {
+  letter-spacing: 4px;
+}
 .nav-logo {
   font-family: 'Montserrat';
   font-weight: 900;
@@ -151,6 +163,7 @@ table {
   letter-spacing: 1px;
   line-height: 15px;
 }
+
 .wrapper {
   padding: 20px;
   margin: 0 auto;
@@ -574,6 +587,9 @@ h4 {
   .button_cont {
     padding-top: 45px;
     padding-right: 20px;
+  }
+  .errorStar {
+    width: 22%;
   }
 }
 
