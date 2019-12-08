@@ -16,7 +16,9 @@ http://movie-central.herokuapp.com/
 * Recommended movies suggested
 * Search any movie using the Search Bar
 * Login and Sign up functionality
+* Persistent User-based Rating
 * Dark Mode
+* Toast Notifications
 * Google Oauth activated
 * Travis CI activated
 * Unit Testing (npm test)

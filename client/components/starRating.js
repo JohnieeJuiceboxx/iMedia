@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import StarRatingComponent from 'react-star-rating-component'
 import {addedRating, fetchRating, updateRatingValue} from '../store/ratings.js'
-import {useToasts} from 'react-toast-notifications'
 import {connect} from 'react-redux'
 import Axios from 'axios'
 
@@ -50,6 +49,7 @@ class starRating extends Component {
     } else {
       this.props.addRating(ratingToAdd)
     }
+    this.props.notify()
   }
   render() {
     const {rating} = this.state

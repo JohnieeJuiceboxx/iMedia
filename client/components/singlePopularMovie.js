@@ -8,11 +8,19 @@ const SinglePopularMovie = props => {
   const {addToast} = useToasts()
 
   const notify = () => {
-    addToast('Login or Sign Up', {
-      appearance: 'error',
-      autoDismiss: true,
-      autoDismissTimeout: 2500
-    })
+    if (!props.isLoggedIn) {
+      addToast('Login or Sign Up', {
+        appearance: 'error',
+        autoDismiss: true,
+        autoDismissTimeout: 2500
+      })
+    } else {
+      addToast('Rating Saved!', {
+        appearance: 'success',
+        autoDismiss: true,
+        autoDismissTimeout: 2500
+      })
+    }
   }
   return (
     <React.Fragment>
@@ -44,7 +52,7 @@ const SinglePopularMovie = props => {
                 className="errorStar"
               />
             ) : (
-              <StarRating movieId={movie.id} />
+              <StarRating movieId={movie.id} notify={() => notify()} />
             )}
           </td>
         </tr>
