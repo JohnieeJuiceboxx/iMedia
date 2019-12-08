@@ -48,7 +48,11 @@ export default class SingleMovieDetail extends Component {
     return (
       <div className="wrapper">
         <h1 className="detail-title">{`${this.state.movieDetails.title} `}</h1>
-        <h6>"{this.state.movieDetails.tagline}"</h6>
+        <h6>
+          {this.state.movieDetails.tagline
+            ? `'${this.state.movieDetails.tagline}'`
+            : null}
+        </h6>
         <div className="single-detail">
           <div>
             <Link to="/popular">

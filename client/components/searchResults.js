@@ -50,7 +50,6 @@ function searchResults(props) {
             {!props.isLoggedIn ? (
               <img
                 src="https://www.freeiconspng.com/uploads/white-star-icon-2.png"
-                width="25"
                 alt="Icon Free White Star"
                 onClick={notify}
                 className="errorStar"

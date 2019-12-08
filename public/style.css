@@ -157,6 +157,7 @@ table {
 }
 .errorStar {
   cursor: pointer;
+  width: 10%;
 }
 h1,
 h6 {
