@@ -36,8 +36,9 @@ const AuthForm = props => {
         <div>
           <a href="/auth/google">
             <img
-              src="http://www.gktravels.co.in/images/gmail-login.png"
+              src="googleLogin.png"
               id="google-button"
+              alt="google login button"
             />
           </a>
         </div>
