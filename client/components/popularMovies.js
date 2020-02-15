@@ -36,12 +36,16 @@ export default class PopularMovies extends Component {
     const search = evt.target.value
     this.searchMovie(search)
   }
+
   render() {
+    const currYear = new Date().getFullYear()
+
     return (
       <div className="wrapper">
-        <div className="pop z-depth-3">
+        {/* <div className="pop z-depth-3"> */}
+        <div className="pop">
           {this.state.search.length === 0 ? (
-            <h1>Popular Movies 2019</h1>
+            <h1>Popular Movies {currYear}</h1>
           ) : (
             <h1>Search Results</h1>
           )}
