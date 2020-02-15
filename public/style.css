@@ -22,6 +22,7 @@ div#app-main.darkmode {
 }
 div#app-main.darkmode .pop {
   background-color: #202427;
+  box-shadow: 6px 6px 12px #1b1f21, -6px -6px 12px #25292d;
 }
 
 div#app-main.darkmode .right-details {
