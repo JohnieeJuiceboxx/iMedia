@@ -8,11 +8,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "react-scripts start",
-"start": "serve -s build",
-"build": "react-scripts build",
-"test": "react-scripts test --env=jsdom",
-"eject": "react-scripts eject",
-     "build-client": "webpack",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-client": "webpack",
     "build-client-watch": "webpack -w",
     "deploy": "script/deploy",
     "heroku-token": "script/encrypt-heroku-auth-token.js",
@@ -22,9 +22,8 @@
     "prettify": "prettier --write \"**/*.{js,jsx,json,css,scss,md}\"",
     "postinstall": "touch secrets.js",
     "seed": "node script/seed.js",
-     "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
+    "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore client"
-
   },
   "husky": {
     "hooks": {
@@ -63,12 +62,14 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.1",
     "react-router-dom": "^5.0.0",
+    "react-scripts": "^4.0.3",
     "react-star-rating-component": "^1.4.1",
     "react-toast-notifications": "^2.4.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "sequelize": "^5.3.1",
+    "serve": "^11.3.2",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
