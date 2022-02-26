@@ -1,0 +1,24 @@
+{
+  "name": "heroku-nodejs-plugin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A module that forwards stats from a Node process into the Heroku metrics system",
+  "scripts": {
+    "postinstall": "./scripts/build.sh",
+    "build": "./scripts/build.sh",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "measured": "^1.1.0",
+    "nan": "^2.14.2",
+    "node-gyp": "^3.7.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^18.0.12"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/heroku/heroku-nodejs-plugin",
+  "type": "commonjs"
+}
